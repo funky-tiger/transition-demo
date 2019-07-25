@@ -1,0 +1,23 @@
+/* 二段动画 */
+.second-transition {
+  height: 0px;
+  position: fixed;
+  top: 300px;
+  left: 300px;
+}
+
+.sec-trans-item:nth-child(1) {
+  background-color: black;
+  height: 2px;
+}
+.sec-trans-item:nth-child(2) {
+  background-color: skyblue;
+  height: 5px;
+}
+.sec-trans-item:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  background-color: hotpink;
+}

@@ -1,0 +1,21 @@
+.line {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  border-bottom: 1px solid deeppink;
+  animation: slash 1s infinite ease;
+  transform: rotate(-45deg);
+  transform-origin: 0px 100px;
+}
+@keyframes slash {
+  /* rotate 旋转 scale缩放 */
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 200px;
+  }
+}

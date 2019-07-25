@@ -1,0 +1,60 @@
+/* 斜线动画 */
+.fir-trans-line {
+  position: fixed;
+  width: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  transform-origin: 0px 100px;
+  transform: rotate(45deg);
+  transition: width 0.5s linear;
+}
+
+/* 旋转icon动画 */
+.rotate-point {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+}
+.rotate-big {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-image: url("./assets/img/out.png");
+  background-size: 100% 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate 1s linear infinite;
+}
+.rotate-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  background-image: url("./assets/img/inner.png");
+  background-size: 100% 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: derotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes derotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

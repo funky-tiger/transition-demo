@@ -1,0 +1,22 @@
+.lean-line {
+  position: fixed;
+  top: 500px;
+  left: 500px;
+  width: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid deeppink;
+  transform-origin: 0px 100px;
+  transform: rotate(45deg);
+  transition: width 0.1s linear;
+}
+
+.line {
+  position: fixed;
+  top: 500px;
+  left: 500px;
+  width: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid deeppink;
+  transform-origin: 0px 100px;
+  transition: width 0.1s linear;
+}
