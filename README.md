@@ -32,6 +32,35 @@
   > `import AnimationControl from '../../component/AnimationControl'`
 - <AnimationControl />组件中传入相应参数(参数参考上方)
   > `<AnimationControl src={videoSrc} serializeData={xxxData} serializeDom={getDom} />`
+- mock 数据:
+  > ` mockData: [
+        {
+          showSecond: 1,
+          data: [
+            {
+              type: "before1",
+              startPoint: { x: 450, y: 300 },
+              endPoint: { x: 600, y: 430 },
+              frameType: "lucent",
+              transparentDown: false,
+              frameWidth: 500,
+              frameHeight: 200,
+              timeout: 3800
+            }
+          ]
+        }
+        ]`
+- 展示动画 DOM:
+  > `getDom = currentTime => {
+        switch (currentTime) {
+          case 0:
+            return (
+              <div style={{ fontSize: "100px" }}>
+                <div style={{ fontSize: "50px" }}>传递的组件1</div>
+              </div>
+            );
+          }
+      }`
 
 ## 要点
 
