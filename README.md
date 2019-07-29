@@ -6,13 +6,13 @@
  * @LastEditTime: 2019-07-25 16:38:59
  -->
 
-# 大体逻辑
+# 整体逻辑
 
 - 在高阶组件 control 中, 通过 this.props.control.getFieldDecorator()来获取之前通过 props 传递的值
 - 同时，通过引入 <AnimationShow /> 组件 来进行对原组件的增强 从而增加该组件的动画渲染的特性
   > 通过 getFieldDecorator() 传递的 options 来获取动画参数
 
-# 整体具体思路
+# 具体思路
 
 ## <AnimationControl/> 对原组件进行分割，将其视频播放和数据动画展示分开，分为 <AnimationWrapper.VideoBg/>和<control/>
 
