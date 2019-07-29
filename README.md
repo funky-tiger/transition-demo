@@ -30,10 +30,10 @@
 
 - 组件中引入
   > `import AnimationControl from '../../component/AnimationControl'`
-- <AnimationControl />组件中传入相应参数(参数参考上方)
-  > `<AnimationControl src={videoSrc} serializeData={xxxData} serializeDom={getDom} />`
+- <AnimationControl />组件中传入相应参数(具体参数意义参考上方)
+  > `<AnimationControl src={videoSrc} serializeData={serializeData} serializeDom={this.serializeDom} />`
 - mock 数据:
-  > ` mockData: [
+  > ` serializeData: [
         {
           showSecond: 1,
           data: [
@@ -51,7 +51,7 @@
         }
         ]`
 - 展示动画 DOM:
-  > `getDom = currentTime => {
+  > `serializeDom = currentTime => {
         switch (currentTime) {
           case 0:
             return (
