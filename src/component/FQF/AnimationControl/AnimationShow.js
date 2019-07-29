@@ -3,21 +3,21 @@
  * @Description: In User Settings Edit
  * @Author: Tiger
  * @Date: 2019-07-18 16:02:04
- * @LastEditTime: 2019-07-22 16:27:59
+ * @LastEditTime: 2019-07-29 15:37:00
  */
-import React, { Component } from "react";
-import { StaggeredMotion, spring, presets } from "react-motion";
-import "./index.css";
+import React, { Component } from 'react';
+import { StaggeredMotion, spring, presets } from 'react-motion';
+import './index.css';
 
 // mock展示数据
 const mockContentInfo = [
-  { title: "生产总长", num: 92876 },
-  { title: "生产总长", num: 92876 },
-  { title: "生产总长", num: 92876 },
-  { title: "生产总长", num: 92876 }
+  { title: '生产总长', num: 92876 },
+  { title: '生产总长', num: 92876 },
+  { title: '生产总长', num: 92876 },
+  { title: '生产总长', num: 92876 },
 ];
 // line
-const lineSet = [{ class: "svg-line1" }, { class: "svg-line2" }];
+const lineSet = [{ class: 'svg-line1' }, { class: 'svg-line2' }];
 
 class AnimationShow extends Component {
   constructor() {
@@ -26,7 +26,7 @@ class AnimationShow extends Component {
       unmountComponent: false,
       ReceiveProp: false,
       isFade: false,
-      allTransDown: true
+      allTransDown: true,
     };
     // 一端动画标示位
     this.transDown = false;
@@ -39,7 +39,7 @@ class AnimationShow extends Component {
     this.unmountTransition();
   }
   unmountTransition = () => {
-    const timeout = this.props.timeout;
+    const timeout = this.props.timeout || 4000;
     // console.log("timeout", timeout);
     this.timer = setTimeout(() => {
       this.props.handleFadeOutShow();
@@ -61,8 +61,12 @@ class AnimationShow extends Component {
     this.setState = (state, callback) => {
       return;
     };
-    if (this.timer) clearTimeout(this.timer);
-    if (this.fadeOutTimer) clearTimeout(this.fadeOutTimer);
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    if (this.fadeOutTimer) {
+      clearTimeout(this.fadeOutTimer);
+    }
   }
   render() {
     const {
@@ -71,7 +75,7 @@ class AnimationShow extends Component {
       frameType,
       transparentDown,
       frameWidth,
-      frameHeight
+      frameHeight,
     } = this.props;
     /**
      * 判断线段的连接位置
@@ -83,7 +87,7 @@ class AnimationShow extends Component {
     /**
      * 全透明且为transparentDowntrue
      */
-    let transDown = frameType === "parent" && transparentDown ? true : false;
+    let transDown = frameType === 'parent' && transparentDown ? true : false;
     /**
      * initPointPoint 坐标点初始坐标
      * initLinePoint 斜线初始坐标
@@ -113,7 +117,7 @@ class AnimationShow extends Component {
       offsetx: initPointPoint.w / 2,
       offsety: initPointPoint.h / 2,
       t: 1,
-      progress: 0
+      progress: 0,
     };
     /**
      * stiffness 和 damping
@@ -145,17 +149,18 @@ class AnimationShow extends Component {
     const { isFade } = this.state;
     const { childShowElement } = this.props;
     const { allTransDown } = this.state;
+    console.log('childShowElement', childShowElement);
     return (
       <React.Fragment>
-        {allTransDown && (
-          <div className={isFade ? "card-fade-out" : ""}>
+        {childShowElement && (
+          <div className={isFade ? 'card-fade-out' : ''}>
             <StaggeredMotion
               defaultStyles={[
                 initPointPoint,
                 initLinePoint,
                 initialWidth,
                 initialWidth,
-                initialHeight
+                initialHeight,
               ]} // 初始
               styles={styles => {
                 return styles.map((_, i) => {
@@ -165,7 +170,7 @@ class AnimationShow extends Component {
                         x: spring(initPointPoint.x),
                         y: spring(initPointPoint.y),
                         w: spring(initPointPoint.w),
-                        h: spring(initPointPoint.h)
+                        h: spring(initPointPoint.h),
                       };
                     case 1:
                       return {
@@ -176,7 +181,7 @@ class AnimationShow extends Component {
                         offsetx: spring(initLinePoint.offsetx),
                         offsety: spring(initLinePoint.offsety),
                         t: spring(initLinePoint.t), // 动画时间
-                        progress: spring(100) // svg绘制进度
+                        progress: spring(100), // svg绘制进度
                       };
                     case 2:
                       return { w: spring(secondSetting.width) };
@@ -185,7 +190,7 @@ class AnimationShow extends Component {
                     case 4:
                       return { h: spring(frameHeight) };
                     default:
-                      return "";
+                      return '';
                   }
                 });
               }}
@@ -202,7 +207,7 @@ class AnimationShow extends Component {
                         ? initLinePoint.x2
                         : initLinePoint.x2 - secondSetting.width,
                       // 修正二段动画偏移量
-                      top: initLinePoint.y2 - 8
+                      top: initLinePoint.y2 - 8,
                     }}
                   >
                     {interpolatingStyles.map((style, i) => {
@@ -224,7 +229,7 @@ class AnimationShow extends Component {
                                 top: style.y,
                                 left: style.x,
                                 width: style.w,
-                                height: style.h
+                                height: style.h,
                               }}
                             >
                               <div className="rotate-big" />
@@ -235,7 +240,7 @@ class AnimationShow extends Component {
                           return (
                             <div
                               key={i}
-                              style={{ position: "fixed", top: 0, left: 0 }}
+                              style={{ position: 'fixed', top: 0, left: 0 }}
                             >
                               <svg width="100vw" height="100vh">
                                 {lineSet.map((item, index) => {
@@ -282,26 +287,13 @@ class AnimationShow extends Component {
                                 style={{
                                   height: style.h,
                                   backgroundColor:
-                                    frameType === "lucent"
-                                      ? "rgba(255, 255, 255, 0.75)"
-                                      : "rgba(255, 255, 255, 0)",
-                                  bottom: transDown ? -frameHeight : null
+                                    frameType === 'lucent'
+                                      ? 'rgba(255, 255, 255, 0.75)'
+                                      : 'rgba(255, 255, 255, 0)',
+                                  bottom: transDown ? -frameHeight : null,
                                 }}
                               >
                                 {childShowElement}
-                                {/* {mockContentInfo.map((item, index) => {
-                                return (
-                                  <div
-                                    key={index}
-                                    className="final-content-item"
-                                  >
-                                    <p className="content-title">
-                                      {item.title}
-                                      <span>{item.num}</span>
-                                    </p>
-                                  </div>
-                                );
-                              })} */}
                               </div>
                             )
                           );

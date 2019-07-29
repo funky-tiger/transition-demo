@@ -3,10 +3,10 @@
  * @Description: In User Settings Edit
  * @Author: Tiger
  * @Date: 2019-07-19 14:31:50
- * @LastEditTime: 2019-07-22 16:49:40
+ * @LastEditTime: 2019-07-29 13:51:13
  */
-import React, { Component } from "react";
-import AnimationWrapper from "./AnimationWrapper";
+import React, { Component } from 'react';
+import AnimationWrapper from './AnimationWrapper';
 
 class AnimationControl extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class AnimationControl extends Component {
     this.state = {
       transData: [], // 展示数据
       timePoint: [], // 展示节点
-      currentTime: 0 // 当前动画时间节点
+      currentTime: 0, // 当前动画时间节点
     };
   }
 
@@ -37,7 +37,7 @@ class AnimationControl extends Component {
     // 获取当前该动画的数据
     this.setState({
       transData: serializeData[timePoint.indexOf(currentShowSec)].data,
-      currentTime: timePoint.indexOf(currentShowSec)
+      currentTime: timePoint.indexOf(currentShowSec),
     });
   };
 
@@ -45,7 +45,7 @@ class AnimationControl extends Component {
    * handleFadeOutShow 淡出动画
    */
   handleFadeOutShow = () => {
-    console.log("该动画即将结束");
+    console.log('该动画即将结束');
     this.setState({ transData: [] });
   };
 
@@ -67,20 +67,20 @@ class AnimationControl extends Component {
     const { src } = this.props;
     return (
       <React.Fragment>
-        <div style={{ width: "100vw", height: "100vh" }}>
+        <div style={{ width: '100vw', height: '100vh' }}>
           {timePoint.length !== 0 && (
             <AnimationWrapper.VideoBg
               src={src}
               autoPlay={true}
               loop="loop"
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: '100%', height: '100%' }}
               timePoint={timePoint}
               handleToggleNextShow={this.handleToggleNextShow}
             />
           )}
 
           {this.props.control.getAnimationShow(this.handleFadeOutShow, {
-            setting: transData
+            setting: transData,
           })(this.props.serializeDom(currentTime))}
         </div>
       </React.Fragment>

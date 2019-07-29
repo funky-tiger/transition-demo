@@ -1,0 +1,400 @@
+/* ------------------------------ */
+/* 一段动画 */
+svg line {
+  /* 透明色 */
+  stroke: transparent;
+  /* 线条宽度 */
+  stroke-width: 1;
+  fill: none;
+  /* 创建虚线 */
+  stroke-dasharray: 1000;
+}
+.svg-line1 {
+  /* 偏移量 */
+  stroke-dashoffset: 0;
+}
+/* 具体svg动画偏移 */
+@keyframes depict {
+  from {
+    stroke: gray;
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke: gray;
+    stroke-dashoffset: 0;
+  }
+}
+/* 斜线动画 */
+.svg-line2 {
+  stroke-dasharray: 1000;
+  animation: depict 1s linear 0s 1 normal forwards;
+}
+/* 旋转icon动画 */
+.rotate-point {
+  position: fixed;
+}
+.rotate-big {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-image: url('./assets/img/out.png');
+  background-size: 100% 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate 1s linear infinite;
+}
+.rotate-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  background-image: url('./assets/img/inner.png');
+  background-size: 100% 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: derotate 1s linear infinite;
+}
+
+/* 具体旋转动画 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes derotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* ------------------------------ */
+/* 二段动画 */
+.second-transition {
+  height: 0px;
+  position: fixed;
+  /* top: 300px;
+  left: 300px; */
+}
+.sec-trans-item1 {
+  background-color: gray;
+  height: 2px;
+}
+.sec-trans-item2 {
+  background-color: black;
+  height: 5px;
+  margin-bottom: 2px;
+}
+.sec-trans-item3 {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  /* background-color: rgba(255, 255, 255, 0.75); */
+  /*  */
+  display: flex;
+  flex-wrap: wrap;
+}
+.table-title {
+  text-align: center;
+}
+.final-content-table {
+  display: table;
+}
+tr {
+  height: 30px;
+  font-size: 16px;
+  font-weight: 700;
+}
+td {
+  white-space: nowrap;
+}
+/* --- */
+.final-content-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.final-temporary-item {
+  padding-right: 8px;
+  width: 100%;
+}
+.final-temporary-item p {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+/* 3 */
+.final-temporaryData-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 30px;
+}
+.content-temporaryData {
+  padding-left: 30px;
+  width: 44%;
+  display: flex;
+}
+.content-temporaryData span {
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+}
+.content-temporaryData span:first-child {
+  width: 45%;
+}
+.content-title {
+  width: 50%;
+  /* text-align: center; */
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+}
+.content-title span {
+  line-height: 50px;
+  width: 50%;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 车速 */
+.content-speed {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.content-speed span {
+  display: block;
+}
+
+.content-speed span:first-child {
+  font-weight: 700;
+  font-size: 16px;
+  display: block;
+}
+
+.content-speed span:last-child {
+  font-weight: 700;
+  font-size: 42px;
+  display: block;
+}
+
+/* 客户具体信息 */
+.currentOrder-title {
+  width: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+}
+
+.currentOrder-title:nth-child(1),
+.currentOrder-title:nth-child(2) {
+  margin-top: 20px;
+}
+.currentOrder-title span {
+  width: 50%;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.currentOrder-title span:last-child {
+  width: 50%;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+}
+/* 入库出库 */
+.finsh-title {
+  padding-top: 20px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+}
+/* .finsh-title{} */
+.finsh-title span {
+  display: block;
+}
+
+/* after页 */
+/* 纸板 */
+.content-boardFinishSum {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.content-boardFinishSum span {
+  display: block;
+}
+
+.content-boardFinishSum span:first-child {
+  font-weight: 700;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.content-boardFinishSum span:last-child {
+  font-weight: 700;
+  font-size: 30px;
+  display: block;
+}
+
+/* 2 */
+.content-temporary {
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.content-temporary span {
+  display: block;
+}
+
+.content-temporary span:first-child {
+  width: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.content-temporary span:last-child {
+  width: 50%;
+  text-align: left;
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+}
+
+/*代生产数据*/
+.content-currentProduce {
+  width: 50%;
+  line-height: 55px;
+  font-size: 18px;
+  font-weight: 700;
+}
+/*上料速度数据*/
+.content-afterSpeed {
+  flex: 1;
+  font-weight: 700;
+  padding-top: 26px;
+  padding-left: 10px;
+}
+.content-afterSpeed p {
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+  margin-inline-start: 0px !important;
+}
+.content-afterSpeed p:first-child {
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+}
+.content-afterSpeed p:last-child {
+  width: 100%;
+  font-size: 38px;
+  text-align: left;
+}
+
+/* 实时/平均速度数据*/
+.content-realTimeSpeed {
+  flex: 1;
+  font-weight: 700;
+  padding-top: 26px;
+  padding-left: 10px;
+}
+.content-realTimeSpeed p {
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+  margin-inline-start: 0px !important;
+}
+.content-realTimeSpeed p:first-child {
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+}
+.content-realTimeSpeed p:last-child {
+  width: 100%;
+  font-size: 38px;
+  text-align: left;
+}
+
+/* 当日送货量*/
+.content-shipmentSum {
+  flex: 1;
+  font-weight: 700;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+.content-shipmentSum p {
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+  margin-inline-start: 0px !important;
+}
+.content-shipmentSum p:first-child {
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+}
+.content-shipmentSum p:last-child {
+  width: 100%;
+  font-size: 30px;
+  text-align: left;
+}
+
+/*10 生产数据*/
+.content-agv {
+  width: 50%;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+}
+.content-agv span:first-child {
+  display: inline-block;
+  width: 47%;
+  text-align: left;
+  margin-left: 22px;
+}
+.content-agv span:last-child {
+  display: inline-block;
+  text-align: left;
+}
+/* 显示卡片的淡出动画 */
+.card {
+}
+.card-fade-out {
+  animation: fadeout 0.8s linear infinite;
+}
+/* 具体淡出动画 */
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

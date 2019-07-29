@@ -14,4 +14,4 @@ import Test2 from "./Test2";
 import Test from "./Test";
 import App from "./App";
 
-ReactDOM.render(<VideoPage />, document.getElementById("root"));
+ReactDOM.render(<Test2 />, document.getElementById("root"));

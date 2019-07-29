@@ -3,7 +3,7 @@
  * @Description: In User Settings Edit
  * @Author: Tiger
  * @Date: 2019-07-22 14:01:20
- * @LastEditTime: 2019-07-22 16:40:04
+ * @LastEditTime: 2019-07-22 17:51:41
  */
 import React from "react";
 
@@ -14,20 +14,20 @@ export default class AnimationShowVideo extends React.Component {
   }
   componentDidMount() {
     const { timePoint, handleToggleNextShow } = this.props;
+    console.log("timePoint", timePoint);
     //监听视频播放事件
     this.video.addEventListener("timeupdate", () => {
-      // console.log("播放了 ", this.video);
       //视频当前播放时间
       let currentTime = parseInt(this.video.currentTime);
-      // console.log("currentTime", currentTime);
+      // let timePointArr = timePoint;
       if (timePoint.indexOf(currentTime) > -1) {
+        // timePointArr.splice(currentTime, -1);
         handleToggleNextShow(currentTime);
       }
     });
   }
   render() {
-    let { src, autoPlay, loop, style, timePoint } = this.props;
-    // console.log("timePoint", timePoint);
+    let { src, autoPlay, loop, style } = this.props;
     return (
       // 无滚动条
       <div style={{ overflowX: "hidden", overflowY: "hidden" }}>
